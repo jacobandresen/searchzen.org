@@ -1,0 +1,14 @@
+---
+layout: post
+title: "educ2008 dag 1"
+date: 2008-06-05 07:06
+comments: true 
+categories: 
+---
+Så er educ2008 begyndt . Direktøren for det hele   Chip Casaneve ( nej ikke <a href="http://www.imdb.com/title/tt0469754/">ham her  </a>) har lige udnævtnt front-it til Channel partner for sverige. Tillykke med det Klaus og Charlotte.
+
+<a href="http://www.pedant.dk/wp-content/2008/06/billede038.jpg" title="front-it bliver svensk channel partner"><img src="http://www.pedant.dk/wp-content/2008/06/billede038.jpg" alt="front-it bliver svensk channel partner" height="672" width="893" /></a>
+
+Mike Peat gennemgik  senere på dagen en database synkroniseringsmekanisme han har implementeret for oxygen applikationen der håndterer abonnementer på blade.
+
+Om aftenen var vi på bakken og spiste i <a href="http://www.peterliep.dk/">Peter Lieps hus</a> (hvor dataflex bandet spillede - HØJT).

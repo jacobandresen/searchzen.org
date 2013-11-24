@@ -1,0 +1,13 @@
+---
+layout: post
+title: "educ2008 dag 2"
+date: 2008-06-09 07:06
+comments: true 
+categories: 
+---
+Eddy Kleinjan havde den uheldige opgave at holde hans indlæg under  'the graveyard shift' fra kl 09.00 til 09.45 hvor vi alle sammen sad og sov p.gr.af nattens udskejelser på Bakken dagen før.  Derefter gik præsentationerne ned ad bakke indtil omkring efter frokost hvor Harm Wibier havde et fremragende indlæg om AJAX biblioteket  (det ser iøvrigt ud til at Data Access Europe nu har sørget for at deres AJAX applikationer kan køre på firefox 3).
+
+[jalbum_album:/album/EDUC2008]
+
+<a href="http://www.vdfsig.co.uk/1seater.asp?pageid=569" title="vdf sig uk">Den engelske dataflex gruppe  </a>
+fortalte om deres arbejde med dataflex på mobile enheder og deres wrapper for CodeJock. Nils Svedmyr  har også gang i en international indsats for at lave en dataflex wrapper for CodeJocks Report objekt . Jeg regner med at kode en del på dette på projekt i løbet af 2008.

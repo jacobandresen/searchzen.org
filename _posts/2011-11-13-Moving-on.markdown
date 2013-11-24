@@ -1,0 +1,8 @@
+---
+layout: post
+title: "Moving on"
+date: 2011-11-13 11:11
+comments: true 
+categories: 
+---
+I've got a new blog!  Follow this one instead <a href="http://searchzen.org" title="searchzen">http://searchzen.org</a>

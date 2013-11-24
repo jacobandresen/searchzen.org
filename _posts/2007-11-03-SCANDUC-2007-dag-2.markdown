@@ -1,0 +1,12 @@
+---
+layout: post
+title: "SCANDUC 2007 dag 2"
+date: 2007-11-03 08:11
+comments: true 
+categories: 
+---
+Torsdag aften var vi ude på en historisk rundvisning i den gamle by i Frederiksstad - her blev vi eskorteret rundt af en deling soldater klædt i historisk dragter fra den tid hvor Danmark og Norge havde rigsfælleskab. Bagefter var der de sædvanlige ud aftenudskejelser med fest og ballade :P
+
+[jalbum_album:/album/SCANDUC 2007 dag 2]
+
+Fredag hørte vi mere Fra Niels Svedmyr om hans nye opensource projekt Quizmaster der er fremviser de nye Code Jock komponenter der er  tilgængelige fra Visual DataFlex 12.1 .  Dette projekt indeholder mange gode demonstrationer af hvordan man kan anvende de nye komponter  og er blevet gjort tilgængeligt fra <a href="http://vdf-guidance.com" title="VDF guidance">http://vdf-guidance.com</a>  . Jeg bidrog også selv med et indlæg om <a href="http://vdfwiki.com">http://vdfwiki.com </a>hvor folk nu kan dele information om Visual DataFlex .

@@ -1,0 +1,12 @@
+---
+layout: post
+title: "fuldskærm REST applikationer på iphone/ipod touch"
+date: 2008-11-16 11:11
+comments: true 
+categories: 
+---
+Den seneste software opdatering (v. 2.1)  for iphone/ipod touch tillader at safari kører i fuldskærmstilstand.  (  se en uddybende beskrivelse <a href="http://www.appleinsider.com/articles/08/10/03/latest_iphone_software_supports_full_screen_web_apps.html">her </a>) Det lyder jo umiddelbart ikke af meget, men apple har så også valgt at introducere en ny måde at gemme 'ikoner' for den webside der bliver vist i fuldskærmstilstand - så hvis man kombinerer fuldskærmsvisningen med understøttelsen af 'offline data' som specificeret i <a href="http://www.w3.org/TR/offline-webapps/">HTML 5</a> (andre browsere end safari kan benytte <a href="http://gears.google.com">google gears</a> for tilsvarende funktionalitet) så kan man konstruere en webapplikation , der kører lokalt i fuldskærmstilstand. (bemærk at safari's offline data understøttelse er implementeret vha <a href="http://sqlite.org/">sqlite</a> ) Du kan læse mere om hvordan du indstiller web applikationer til fuldskærmstilstand i "Safari web content" i <a href="http://developer.apple.com/">Apples developer connection .</a>
+
+Introduktionen af fuldskærmswebapplikationer løser nogle af de problemer der er på iphone platformen. Det er et velkendt problem at brugen af <a href="http://developer.apple.com/internet/webservices/webservicescoreandcfnetwork.html">webservices fra cocoa touch</a> er langt bagefter andre platforme såsom .NET eller java og ikke tilbyder en fungerende bindingscompiler for wsdl filer .  Ved at bruge javascript kan du nu omdefinere problemet og opstille en <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm">REST arkitektur</a> der gør dine data tilgængelige vha json - på den facon kan du på nem vis benytte data f.eks <a href="http://www.pedant.dk/2008/04/01/brug-af-datastores-og-data-views-i-extjs/">vha en Extjs DataStore.</a>
+
+Når du kører inde fra en webapplikation så har du dog ikke adgang til nogle af de mange features der er tilgængelige på din iphone (f.eks kameraet eller gps enheden) . Dette kan du få adgang ved at benytte <a href="http://drnicwilliams.com/2008/11/10/to-webkit-or-not-to-webkit-within-your-iphone-app/">webkit inde fra en native app</a> (webkit er safaris rendering engine).
