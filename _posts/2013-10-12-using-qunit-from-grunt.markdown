@@ -18,18 +18,18 @@ To be able to use grunt you will need [nodejs](http://nodejs.org) and [npm](http
 
 You can install grunt globally from the commandline like this: 
 
-{% codeblock %}
+{% highlight bash %}
 npm install grunt-cli
-{% endcodeblock %}
+{% endhighlight %}
 
 To take your newly installed grunt for a spin, you could try it out with building [jquery-ui](https://github.com/jquery/jquery-ui). To checkout jquery-ui you could do this:
 
-{% codeblock %}
+{% highlight bash %}
 git clone http://github.com/jquery/jquery-ui
 cd jquery-ui
 npm install
 grunt --force
-{% endcodeblock %}
+{% endhighlight %}
 	
 This should take you through an example of using grunt on an existing project. If all goes well then  all the tests should pass and a new jquery-ui build should be avaible to you inside the "dist" folder.
 
@@ -39,17 +39,17 @@ The major strength of grunt is its strong tradition for [plugins](http://gruntjs
 
 To be able to run grunt-init you need to install the grunt-init plugin and grab a working template to start working: 
 
-{% codeblock %}
+{% highlight bash %}
 npm install -g grunt-init
 cd c:\users\jacob\.grunt-init
 git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/.grunt-init/gruntfile gruntfile
-{% endcodeblock %}
+{% endhighlight %}
 
 Note that my username is "jacob" and that I am on windows here. You will probably have to insert another directory.
 
 Now I could run "grunt-init gruntfile" and answer a couple of questions:
 
-{% codeblock %}
+{% highlight bash %}
 D:\Sites\2>grunt-init gruntfile --force
 Running "init:gruntfile" (init) task
 This task will create one or more files in the current directory, based on the
@@ -70,11 +70,11 @@ Please answer the following:
 [?] Will files be concatenated or minified? (Y/n)
 [?] Will you have a package.json file? (Y/n)
 
-{% endcodeblock %}
+{% endhighlight %}
 
 After hitting Enter three times I got this file "Gruntfile.js":
 
-{% codeblock %}
+{% highlight JavaScript %}
 /*global module:false*/
 module.exports = function(grunt) {
 
@@ -157,17 +157,17 @@ module.exports = function(grunt) {
 
 };
 
-{% endcodeblock %}
+{% endhighlight %}
 
 To be able to run this Gruntfile you need to install the necessary plugins. If you append "--save-dev" to the installation commands then installation info will inserted into package.json:
 
-{% codeblock %}
+{% highlight bash %}
 npm install grunt-contrib-jshint --save-dev
 npm install grunt-contrib-qunit --save-dev
 npm install grunt-contrib-watch --save-dev
 npm install grunt-contrib-concat --save-dev
 npm install grunt-contrib-uglify --save-dev
-{% endcodeblock %}
+{% endhighlight %}
 
 This will retrieve the plugins and place them inside the node_modules and add them inside the devDependencies section of package.json . As you might have noticed the Grunt files are a bit verbose but they support easy composition of plugins - e.g. if you would like to another target , using another plugin , then you could do this pretty easily. The grunt files are written in javascript, so if you wish to insert custom logic in the build files, then it should be pretty easy to do so (Without worrying about tabs and spaces  ).
 
@@ -187,15 +187,15 @@ The essential functionality in qunit is :
 
 Combining these let's you write a test like the check for [#7534 in jquery ui](http://bugs.jqueryui.com/ticket/7534):
 
-{% codeblock %}
+{% highlight JavaScript %}
 
 test( "#7534 - Button label selector works for ids with \":\"", function() {
   expect( 1 );
-  var group = $( "<span><input type='checkbox' id='check:7534'><label for='check:7534'>Label</label></span>" );
+  var group = $( "<span><input type='checkbox' id='check:7534'> <label for='check:7534'>Label</label></span>" );
   group.find( "input" ).button();
   ok( group.find( "label" ).is( ".ui-button" ), "Found an id with a :" );
 });
-{% endcodeblock %}
+{% endhighlight %}
 
 Here we expect 1 assertion to be run.
 

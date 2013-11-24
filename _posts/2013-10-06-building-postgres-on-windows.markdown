@@ -23,28 +23,28 @@ Then you need [git](http://git-scm.com/ "Git") . If you have been living under a
 
 After installing git you can clone the postgres code base like this:
 
-{% codeblock %}
+{% highlight bash %}
 mkdir build
 cd build
 git clone git://git.postgresl.org/git/postgresql.git
-{% endcodeblock %}
+{% endhighlight %}
 
 
 After a while then you should have the source code available . If you are like me ,then you'll probably hurry into \build\postgresql\src and notice win32.make. Maybe this will work?
 
-{% codeblock %}
+{% highlight bash %}
 nmake /f win32.mak
-{% endcodeblock %}
+{% endhighlight %}
 
 No luck! It fails with:
-{% codeblock %}
+{% highlight bash %}
         link.exe -lib @C:\Users\Jacob\AppData\Local\Temp\nm3F8F.tmp
 NMAKE : fatal error U1073: don't know how to make 'libpq-dist.rc'
 Stop.
 NMAKE : fatal error U1077: '"C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\BIN\nmake.EXE"' : return code '0x2'
 Stop.
 D:\Build\postgresql\src>
-{% endcodeblock %}
+{% endhighlight  %}
 
 Luckily there is \build\postgresql\src\tools\msvc\build.pl . 
 
@@ -52,13 +52,13 @@ Huh ?  What's *.pl files ? That's perl.  If you don't know what perl is , then y
 
 Now. After installing perl, let's cross our fingers and type
 
-{% codeblock %}
+{% highlight bash %}
 perl build.pl
-{% endcodeblock %}
+{% endhighlight %} 
 
 No?? msbuild throws up with:
 
-{% codeblock %}
+{% highlight bash %}
 D:\Build\postgresql\src\tools\msvc>perl build.pl
 Detected hardware platform: Win32
 Microsoft (R) Build Engine version 4.0.30319.17929
@@ -89,15 +89,15 @@ ED.
 
 
 Build FAILED.
-{% endcodeblock %}
+{% endhighlight %}
 
 Oh.you  probably spotted it also. "Detected hardware platform: win32". I ran this using the "Developer Command Prompt for VS2012" - maybe this targets win32 pr default? If I select "Microsoft Visual Studio 2012"|"Visual Studio Tools"|"VS2012 x64 Cross Tools Command Prompt" and execute "build" again - then it works!
 
 After the compilation finished I typed:
-{% codeblock %}
+{% highlight bash %}
 mkdir c:\postgres
 install c:\postgres
-{% endcodeblock %}
+{% endhighlight %}
 
 Now I can use postgres from c:\postgres ! 
 
@@ -107,7 +107,7 @@ Now I can use postgres from c:\postgres !
 After finishing what I did above I throw out my custom compile and starting using the [postgres zip archive](http://www.postgresql.org/download/windows/)  again. I kept the code locally though. Right now I am poking around in the source code using "Run Source code analysis on solution". This gives me the lowdown on what Microsoft thinks could be improved in the code. Let's see an example:
 
 
-{% codeblock %}
+{% highlight bash %}
 
 C6001	Using uninitialized memory	Using uninitialized memory 'replace_val'.	libpgtypes	timestamp.c	845
 		'replace_val' is not initialized			388
@@ -118,7 +118,7 @@ C6001	Using uninitialized memory	Using uninitialized memory 'replace_val'.	libpg
 		'replace_val' is used, but may not have been initialized			845
 
 
-{% endcodeblock %}
+{% endhighlight %}
 
 Note that this is a random example. Right now I have a limited understanding of the postgresql codebase, so following the [hardening guidelines from OWASP](https://www.owasp.org/index.php/OWASP_Backend_Security_Project_PostgreSQL_Hardening) seems like a good idea. 
 
