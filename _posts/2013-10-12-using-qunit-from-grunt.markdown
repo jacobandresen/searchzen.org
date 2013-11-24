@@ -3,7 +3,7 @@ layout: post
 title: "Using qunit from grunt"
 date: 2013-10-12 15:53
 comments: true
-categories: testing, automation
+categories: testing automation
 ---
 
 When poking around in the [jquery](http://jquery.com) and [jquery ui](http://jqueryui.com) codebases I noticed an extensive use of [qunit](http://qunitjs.com) from [grunt](http://gruntjs.com). I get it that the jquery guys also did qunit - so this makes sense. But why grunt? I remember the earlier versions just used makefiles.
