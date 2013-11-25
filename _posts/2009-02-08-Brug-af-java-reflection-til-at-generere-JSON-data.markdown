@@ -9,7 +9,7 @@ Jeg arbejder iøjeblikket på en opgave , hvor jeg har behov for at bringe datam
 
 Hvis vi antager flg klasser :
 
-<code lang="java">
+{%highlight Java%}
 class A{
   public int B;
   public int C;
@@ -20,10 +20,10 @@ class A{
 class D {
   public String E;
 }
-</code>
+{%endhighlight%}
 
 og at de var initialiseret således:
-<code lang="java">
+{%highlight Java%}
 A a=new A();
 a.B=1;
 a.C=2;
@@ -31,11 +31,11 @@ a.F=new D();
 a.F.E="test";
 a.G=new D();
 a.G.E="test2";
-</code>
+{%endhighlight%}
 
 Så kunne man kigge på selve java objekterne vha reflection for at generere JSON output til bruge i javascript således:
 
-<code lang="java">
+{%highlight Java%}
 public class JsonEmit{
   public static String emit(Object target) throws Exception{
      StringBuilder sb=new StringBuilder();
@@ -62,7 +62,7 @@ public class JsonEmit{
  sb.append("}");
  return(sb.toString());
 }
-</code>
+{%endhighlight%}
 
 På den facon vil man kunne genere JSON ved et simpelt kald til
 <code lang="java">
