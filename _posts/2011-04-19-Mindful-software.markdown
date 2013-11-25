@@ -5,7 +5,7 @@ date: 2011-04-19 10:04
 comments: true 
 categories: 
 ---
-I have spent considerable amounts of  time thinking about the concept of information and how to convey it in software.  <a title="what is information?" href="http://www.pedant.dk/2009/08/10/what-is-information/" target="_blank">Some years ago</a> I came to the conclusion that I want to present information in context, e.g not present crude extracts from databases, but adapt it to the presentation context, with the user in mind.
+I have spent considerable amounts of  time thinking about the concept of information and how to convey it in software.  <a title="what is information?" href="/2009/08/10/what-is-information.html">Some years ago</a> I came to the conclusion that I want to present information in context, e.g not present crude extracts from databases, but adapt it to the presentation context, with the user in mind.
 
 Some useful contexts could be "location" or "social networks" - the context should be varied depending on the type of information context - e.g information about abstract concepts have no use of location information. The use of context should increase the likelihood of the information being conveyed to the user in a understandable manner.
 
