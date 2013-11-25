@@ -7,6 +7,4 @@ categories:
 ---
 Så er første dag af den egentlige SCANDUC 2007 konference overstået . Vi nåede at blive introduceret  til den nye "sexede" version (øhh. det er ikke mig der sagde , det var "version2" der sagde det her : <a href="http://www.version2.dk/artikel/2528?rss" title="http://www.version2.dk/artikel/2528?rss ">http://www.version2.dk/artikel/2528?rss </a>)  .
 
-[jalbum_album:/album/SCANDUC 2007 dag 1]
-
 Dagen idag har også budt på indlæg fra Front-IT om værktøjet Dynamic AI - jeg har forventninger om at dette værktøj vil blive mere synligt på Business Intelligence markedet i de næste kommende år . Den nye grænseflade for version 6 ser en del mere intuitiv ud end sidste version - ligeledes så værktøjets "join builder" ud til at være let at forstå for "almindelige mennesker" (lad mig vide hvis du kender nogle ).
