@@ -10,7 +10,7 @@ Jeg har iøjeblikket brug for at kunne afprøve flere forskellige måder at impl
 Da det iøjeblikket er for webapplikationer jeg undersøger , så har jeg valgt at køre under tomcat5.5 på min testmaskine.
 tomcat5.5 og groovy kan nemt installeres sammen  på ubuntu. Det gøres sådan her  (jeg antager at du allerede har installeret mysql og den virker)
 
-{%highlight bash%}>
+{%highlight bash%}
 sudo apt-get install tomcat5.5 tomcat5.5-admin groovy
 {%endhighlight%}
 
