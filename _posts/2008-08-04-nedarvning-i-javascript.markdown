@@ -7,7 +7,7 @@ categories:
 ---
 Jeg har fornyligt genopfrisket hvordan man laver nedarvning i javascript .  Det centrale i forståelsen af nedarvning i javascript er forståelsen at javascript er et <a href="http://www.javascriptkit.com/javatutors/proto.shtml">prototype</a> -baseret sprog og ikke et klassebaseret sprog.  Her er et eksempel , der gerne skulle lave en alert-box med "I am a pig":
 
-<code lang="javascript">
+{%highlight JavaScript %}
 function animal ()  {
   this.name = "nothing yet";
   this.legs=4;
@@ -21,7 +21,7 @@ animal.prototype.classify = function (){
   alert( ' I am a ' + this.name );
 };
 pig.classify();
-</code>
+{%endhighlight%}
 
 Bemærk brugen af prototype her, der tilføjer en ny funktion classify, der benytter den allerede eksisterende værdi "name".
 
