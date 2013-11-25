@@ -7,7 +7,7 @@ categories:
 ---
 Hvad mon der sker her :
 
-<code lang="javascript">
+{% highlight JavaScript %}
   var a=1;
   function foo() {
     var a;
@@ -23,4 +23,4 @@ Hvad mon der sker her :
   var c=b();
   alert(c);
   alert(a);
-</code>
+{% endhighlight %}
