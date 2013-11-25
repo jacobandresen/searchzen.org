@@ -9,6 +9,7 @@ I kampens hede, når man er igang med at kode mod oracle 10ias og ved at hive in
 
 Sådan gør man det:
 
+{%highlight Java%}
 InputStream in = request.getInputStream();
 DOMParser xmlParser = new DOMParser();
 XMLDocument req = null;
@@ -16,5 +17,6 @@ xmlParser.parse(in);
 req = xmlParser.getDocument();
 
 req.print(System.out);
+{%endhighlight%}
 
 Bemærk det sidste "req.print(System.out)"  - den glemmer jeg selv altid. Tricket er at man kan skrive dokumentet ud til en printstream.
