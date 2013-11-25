@@ -13,7 +13,7 @@ Jeg så straks at designeren af skemaet kan lide <a href="http://en.wikipedia.or
 
 Ved at kigge lidt i tingService.cs så jeg hvilke parametre man skulle bruge . Jeg ved ikke lige hvad formatType og sortType skal bruges til ,så jeg lavede bare en default constructor på den. Det førte til flg kode:
 
-<code lang="c#">
+{%highlight Java%}
 using System;
 
 public class test {
@@ -25,7 +25,7 @@ public class test {
  //Console.Write(sr.records[0].relations[0]);
  }
 }
-</code>
+{%endhighlight %}
 
 
 jeg kompilerede koden med "csc test.cs tingService.cs" og fik umiddelbart en køretidsfejl. .NET frameworket rapporterede om en Ikke-afviklet undtagelse ifm en HTTP fejl 301  hvor det blev meddelt at endepunktet var flyttet til http://didicas.dbc.dk/opensearch/
