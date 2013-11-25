@@ -15,7 +15,7 @@ We managed to have a google wave running sometime before lunch - so it is very e
 
 The overall idea of building a google wave bot is to listen to incoming events defined in the protocol. Let's say we want to perform something when somebody enters the wave or write something - then we can define the capabilities like this:
 
-<code lang="xml">
+{%highlight Xml%}
 <?xml version="1.0"?>
 <w:robot xmlns:w="http://wave.google.com/extensions/robots/1.0">
   <w:version>0.0.4</w:version>
@@ -24,11 +24,11 @@ The overall idea of building a google wave bot is to listen to incoming events d
     <w:capability name="wavelet_participants_changed"/>
   </w:capabilities>
 </w:robot>
-</code>
+{%endhighlight%}
 
 Then the robot should act on the defined events in a manner similar to this :
 
-<code lang="java">
+{%highlight Java%}
 @Override
 public void processEvents(RobotMessageBundle robotMessageBundle) {
   Wavelet wavelet = robotMessageBundle.getWavelet();
@@ -41,7 +41,7 @@ public void processEvents(RobotMessageBundle robotMessageBundle) {
     }
   }
 }
-</code>
+{%endhighlight%}
 
 The Wave client api  offers something like the DOM api for the xml being sent back and forth. During the hackathon I learnt that there is no way to ask for the contents of the entire wave from a single blip - so it will require some thinking to save the entire contents of the wave - but it should be doable.
 
