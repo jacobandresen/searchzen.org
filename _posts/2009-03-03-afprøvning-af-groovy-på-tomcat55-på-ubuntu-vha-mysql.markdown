@@ -10,9 +10,9 @@ Jeg har iøjeblikket brug for at kunne afprøve flere forskellige måder at impl
 Da det iøjeblikket er for webapplikationer jeg undersøger , så har jeg valgt at køre under tomcat5.5 på min testmaskine.
 tomcat5.5 og groovy kan nemt installeres sammen  på ubuntu. Det gøres sådan her  (jeg antager at du allerede har installeret mysql og den virker)
 
-<code lang="bash">
+{%highlight bash%}>
 sudo apt-get install tomcat5.5 tomcat5.5-admin groovy
-</code>
+{%endhighlight%}
 
 For at få tomcat5.5 til at køre groovy til demonstrationsformål har jeg sat "TOMCAT5_SECURITY=no" i filen "/etc/init.d/tomcat5.5". I et produktionsmiljø bør man gøre sig overvejelser om brugen af classloaders.
 
@@ -20,7 +20,7 @@ For at få tomcat5.5 til at køre groovy til demonstrationsformål har jeg sat "
 
 Herefter kan der ses et resultat i  /groovytest/ på testmaskinen. groovy testkoden ser således ud:
 
-<code lang="bash">
+{%highlight Java%}
 Sql.loadDriver("com.mysql.jdbc.Driver");
 sql = Sql.newInstance("jdbc:mysql://localhost:3306/test", "web","sockmonkey");
 
@@ -28,7 +28,7 @@ sql.eachRow("select * from test") {
 println it.id + " " + it.name
 }
 print "mere test"
-</code>
+{%endhighlight%}
 
 "test.groovy"  henviser til en database "test" med tabellen "test". Disse kan skabes vha filen "test.sql" der er vedlagt i <a title="groovytest.war" href="http://pedant.dk/hacks/20090303/groovytest.war">groovytest.war</a>
 
