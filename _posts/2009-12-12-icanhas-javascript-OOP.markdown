@@ -14,7 +14,7 @@ In javascript we can express objects using the prototype notation:
  Cat.prototype.greet = function () {
    return "meeow";
  }
-{% endhighlight %}]
+{% endhighlight %}
 
 using class mimicking from <a href="http://prototypejs.org/">prototype-js</a> it would be :
 
