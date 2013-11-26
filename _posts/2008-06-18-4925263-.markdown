@@ -1,8 +1,0 @@
----
-layout: post
-title: "4925263 !"
-date: 2008-06-18 07:06
-comments: true 
-categories: 
----
-Firefox 3 blev releaset igår. Jeg har lige været inde og kigge på <a href="http://downloadcounter.sj.mozilla.com/">firefox download counteren.</a> Verdensrekorden i downloads på 24 timer var indtil idag 1.6 millioner  . go firefox!
