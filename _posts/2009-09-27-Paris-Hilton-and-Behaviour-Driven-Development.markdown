@@ -5,7 +5,7 @@ date: 2009-09-27 06:09
 comments: true 
 categories: 
 ---
-Recently, I have been giving  <a href="http://behaviour-driven.org/Introduction">Behaviour Driven Development</a> some thought.
+Recently, I have been giving Behaviour Driven Development some thought.
 
 Let's take a an example of how to develop and test a  music video search and storage  system. A traditional way of developing this would require formulating a object oriented system architecture, thinking about streaming and metadata enabled search. The system architecture could consist  of a well chosen database server, a streaming server and a metadata enabled search engine - combining these technologies with a modern UI  and encapsulating theme in carefully designed object oriented structures. During all these important choices , and all during development we would make sure to write tests before we write a single line of code.
 
@@ -28,4 +28,4 @@ A better way to formulate my expectations for the system would be:
   I should be able to query facebook for information about it</pre>
 If I had those expectations formulated to me , then I would choose to implement this system as a mashup between youtube and facebook as a facebook application. This would be a radically different system architecture than the one describe above.
 
-Furthermore , by leveraging one of the <a href="http://behaviour-driven.org/Implementations">several BDD test frameworks available</a>, then the expectations could be formulated in way that can be used as tests.
+Furthermore , by leveraging one of the several BDD test frameworks available, then the expectations could be formulated in way that can be used as tests.
