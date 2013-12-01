@@ -9,7 +9,7 @@ categories:
 <p>Problemet kan omgåes ved at benytte <a href="http://prototypejs.org/api/function/bind">"bind" fra prototypejs</a> på flg. facon:</p>
 <p>
 
-<code lang="javascript">
+{%highlight JavaScript%}
 ComboBox.prototype.loader= function (){
   if(this.dataStore[this.paramName]===undefined){
     new Ajax.Request (
@@ -27,4 +27,3 @@ ComboBox.prototype.loader= function (){
                                   }.bind(this)
      }
 }
-</code></p>
