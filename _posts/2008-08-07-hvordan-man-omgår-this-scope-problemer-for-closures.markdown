@@ -27,3 +27,4 @@ ComboBox.prototype.loader= function (){
                                   }.bind(this)
      }
 }
+{%endhighlight%}
