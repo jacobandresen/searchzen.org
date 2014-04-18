@@ -1,3 +1,24 @@
-name: Searchzen 
-markdown: redcarpet
-pygments: true
+# Dependencies
+markdown:         redcarpet
+pygments:         true
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            searchzen
+tagline:          'combating complexity so you do not have to'
+description:      '<img src="/public/jacob.png"/><p>Hello! My name is Jacob Andresen. I collect my thoughts and findings about software craftsmanship here.</p>'
+url:              http://lanyon.getpoole.com
+
+author:
+  name:           'Jacob Andresen'
+  url:            https://twitter.com/jacobandresen
+
+paginate:         5
+
+# Custom vars
+version:          1.0.0
+
+github:
+  repo:           https://github.com/jacobandresen/searchzen

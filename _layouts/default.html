@@ -1,49 +1,30 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ page.title }}</title>
-        <meta name="viewport" content="width=device-width">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 
-        <!-- favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+  {% include head.html %}
 
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
+  <body>
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+    {% include sidebar.html %}
 
-    </head>
-    <body>
-
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
-          </div>
-
-          {{ content }}
-
-          <div class="footer">
-            <div class="contact">
-                <table>
-                    <tr>
-                        <td>
-                            <img src="/images/jacob.png" alt="Jacob" />
-                        </td>
-                        <td>
-    <b>Hello !</b> I am Jacob Andresen .
-    <p>Feel free to ping me on <a href="https://twitter.com/jacobandresen">twitter</a>  or checkout my projects on <a href="https://github.com/jacobandresen">Github</a>.</p>
-    <p>You can see most of the conferences or meetups i attend on <a href="http://lanyrd.com/profile/jacobandresen/">Lanyrd</a></p>
-                        </td>
-
-                    </tr>
-                </table>
-            </div>
-          </div>
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">{{ site.title }}</a>
+            <small>{{ site.tagline }}</small>
+          </h3>
         </div>
+      </div>
 
-    </body>
+      <div class="container content">
+        {{ content }}
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  </body>
 </html>
