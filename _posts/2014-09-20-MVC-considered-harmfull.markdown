@@ -11,8 +11,7 @@ for software development - and understand the mental models that have been forme
 Or as [George Santayana](http://www.wikiwand.com/en/George_Santayana) put it "Those who cannot remember the past are condemned to repeat it".
 
 To better understand the historical context I think all web developers should be at least familiar with a basic description of
-the MVC pattern and familiar with the existing frameworks that are allready available and understand their benefits and shortcomings before setting
-out to implement new ones.
+the MVC pattern and familiar with the existing frameworks that are allready available.
 
 ## A detour around Xerox PARC
 Prior to the internet - programming mostly involved a workstation and in some cases a central server with a central datastore .
@@ -72,13 +71,30 @@ than your local PC had.
 
 ##  Understanding the web as a delivery platform 
 
-The main difference between using a local pc application and a web application today is typically that the web application involves data available from 
-another server. This should not pose a problem with rendering logic is expressed on the server - e.g when all the view is rendered via one call to the 
+The main difference between  a local pc application and a web application today is typically that the web application involves data available from 
+another machine. This should not pose a noticeable problem when rendering logic is expressed on the server - e.g when all the view is rendered via one call to the 
 server. But if the view is constructed on the client side and requires several calls to fetch data e.g for a compound view then this could pose a problem
 performancewise. It should be immediately obvious that a solution where all data comes prerendered will be faster than a solution that requires data to 
 be assembled via several calls. When you also consider the added complexity of tackling layout changes as a result of unpredictable results then you 
-could start considering looking for ways to improve performance. On obvious choice would be to minimize the amount of needed calls to the server. 
+could start considering looking for ways to improve performance. So - one obvious choice would be to minimize the amount of needed calls to the server.
 
 
-## Maintaining separation of concerns
-*[react.js](http://facebook.github.io/react/)
+
+## Where to go from here?
+First of all - You should think very hard about what you are doing if you are planning to roll your own MVC framework. If you are going to do it anyway
+I hope you at least browse through the [allready available frameworks](https://todomvc.com) and familiarize yourself
+with the basics of [MV*](http://addyosmani.com/blog/understanding-mvvm-a-guide-for-javascript-developers/) and understand the performance penalties of cleanroom MVC.
+
+One  way to minimize the number of calls to server would be to setup a fullstack solution - where javascript is used both on the server and on the client
+side. This could be done e.g with [react.js](https://facebook.github.io/react/) that has introduced the use of a virtual dom so that you can reason about
+the entire page before starting rendering on the client side (here is an example to get started: [react server example](https://github.com/mhart/react-server-example) ).
+  react.js could use used for the V in MV* . For the M you could use [Backbone.js](https://backbonejs.org) or vanilla javascript constructs.
+
+
+If you are thinking about refactoring an existing codebase to support better separation of concerns then I suggest that you consider a temporary goal before
+switching your entire codebase to e.g angular og ember.js . If you are in a situation where view rendering are constructed  via javascript or some custom constructs 
+on the serverside the you could consider if you could express the sample logic via an existing templating engine. E.g if you are considering a switch to
+ember.js then it could be worthwhile to try to port some of your view-logic to [handlebars](http://handlebarsjs.com/) first. If your existing codebase was constructed
+sometime after 2000 then chances are that data retrieval/manipulation parts allready are expressed in manner that are without rendering logic - if  not - then you could
+refactor them to be so.
+
