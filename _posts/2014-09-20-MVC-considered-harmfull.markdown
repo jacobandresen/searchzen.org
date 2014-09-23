@@ -88,13 +88,13 @@ with the basics of [MV*](http://addyosmani.com/blog/understanding-mvvm-a-guide-f
 One  way to minimize the number of calls to server would be to setup a fullstack solution - where javascript is used both on the server and on the client
 side. This could be done e.g with [react.js](https://facebook.github.io/react/) that has introduced the use of a virtual dom so that you can reason about
 the entire page before starting rendering on the client side (here is an example to get started: [react server example](https://github.com/mhart/react-server-example) ).
-  react.js could use used for the V in MV* . For the M you could use [Backbone.js](https://backbonejs.org) or vanilla javascript constructs.
+  react.js could be used for the V in MV* . For the M you could use [Backbone.js](https://backbonejs.org) or vanilla javascript constructs.
 
 
 If you are thinking about refactoring an existing codebase to support better separation of concerns then I suggest that you consider a temporary goal before
 switching your entire codebase to e.g angular og ember.js . If you are in a situation where view rendering are constructed  via javascript or some custom constructs 
 on the serverside the you could consider if you could express the sample logic via an existing templating engine. E.g if you are considering a switch to
-ember.js then it could be worthwhile to try to port some of your view-logic to [handlebars](http://handlebarsjs.com/) first. If your existing codebase was constructed
+ember.js then it could be worthwhile to try to port some of your viewlogic to [handlebars](http://handlebarsjs.com/) first. If your existing codebase was constructed
 sometime after 2000 then chances are that data retrieval/manipulation parts allready are expressed in manner that are without rendering logic - if  not - then you could
 refactor them to be so.
 
