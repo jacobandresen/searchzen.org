@@ -24,3 +24,5 @@ github:
   repo:           https://github.com/jacobandresen/searchzen
 
 gems: [jekyll-paginate]
+
+theme: jekyll-theme-minimal
