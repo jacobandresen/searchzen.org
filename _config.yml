@@ -1,6 +1,6 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      true
+markdown:        redcarpet
+highlighter:     rouge 
 
 # Permalinks
 permalink:        pretty
@@ -9,7 +9,7 @@ permalink:        pretty
 title:            searchzen
 tagline:          'combating complexity so you do not have to'
 description:      '<img src="/public/jacob.png"/><p>Hello! My name is Jacob Andresen. I collect my thoughts and findings about software craftsmanship here.</p>'
-url:              http://lanyon.getpoole.com
+url:              http://searchzen.org
 
 author:
   name:           'Jacob Andresen'
@@ -25,6 +25,5 @@ github:
 
 plugins: 
   - jekyll-paginate
-  - ./_plugins/youtube
 
 theme: jekyll-theme-minimal
