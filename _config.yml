@@ -1,6 +1,6 @@
 # Dependencies
 markdown:         redcarpet
-highlighter:         true
+highlighter:      true
 
 # Permalinks
 permalink:        pretty
@@ -21,8 +21,10 @@ paginate:         5
 version:          1.0.0
 
 github:
-  repo:           https://github.com/jacobandresen/searchzen
+  repo:           https://github.com/jacobandresen/searchzen.org
 
-gems: [jekyll-paginate]
+plugins: 
+  - jekyll-paginate
+  - ./_plugins/youtube
 
 theme: jekyll-theme-minimal

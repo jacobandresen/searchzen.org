@@ -1,0 +1,108 @@
+<p>So. Lately I have been advocating a switch to <a href="http://www.postgresql.org/">postgres</a> from various BigCo databases. I have been inferring that “postgres” is “just better”. But basically I don’t have a clue. I am not a database expert  - and I did not take the advanced database classes in school. So - why I am I doing this?</p>
+
+<p>##Beating myself on the head with a wooden stick#</p>
+
+<p>I believe in having the source available for all my tools.This is just a personal preference of mine … I like to poke around to learn new stuff .. discover new ways  and combine projects in new ways .. but mostly I like to learn from the insights of others. See implementation tidbits buried deep down. My list of  projects to poke around in is long. Postgres is just one of the projects I’d like to poke around in. So - now I am going to poke around in postgres.  Let’s see if we can compile it on window 7.  I’ll just write down notes as I go along. Are you ready?   Bring forward your wooden stick!</p>
+
+<object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/YgYEuJ5u1K0&amp;hl=en&amp;fs=1&amp;" /><param name="allowFullScreen" value="true" /><param name="allowscriptaccess" value="always" /><embed type="application/x-shockwave-flash" width="560" height="340" src="http://www.youtube.com/v/YgYEuJ5u1K0&amp;hl=en&amp;fs=1&amp;" allowfullscreen="true" allowscriptaccess="always" />&lt;/embed&gt;</object>
+
+<p>Checking out postgres on windows</p>
+
+<p>So - the plan is to compile C/C++ code on windows. To do this you need a C/C++ compiler. I’ll just take the easy route here on windows and download <a href="http://www.microsoft.com/visualstudio/eng/products/visual-studio-express-products">Express 2012 for Windows Desktop</a> . Note that you need to register to do this. Downloading and installing Visual Studio Express can take a while.</p>
+
+<p>Then you need <a href="http://git-scm.com/" title="Git">git</a> . If you have been living under a rock for the last decade, then git is a distributed version control system - popularized by the linux kernel and <a href="http://github.com">github.com</a> . You can grab a windows installer on <a href="http://git-scm.com/download/win">git-scm.com</a> . Go ahead and install it if you do not have it yet. You’ll be glad you did.</p>
+
+<p>After installing git you can clone the postgres code base like this:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">mkdir build
+<span class="nb">cd </span>build
+git clone git://git.postgresl.org/git/postgresql.git</code></pre></figure>
+
+<p>After a while then you should have the source code available . If you are like me ,then you’ll probably hurry into \build\postgresql\src and notice win32.make. Maybe this will work?</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">nmake /f win32.mak</code></pre></figure>
+
+<p>No luck! It fails with:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">        link.exe <span class="nt">-lib</span> @C:<span class="se">\U</span>sers<span class="se">\J</span>acob<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\T</span>emp<span class="se">\n</span>m3F8F.tmp
+NMAKE : fatal error U1073: don<span class="s1">'t know how to make '</span>libpq-dist.rc<span class="s1">'
+Stop.
+NMAKE : fatal error U1077: '</span><span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files (x86)</span><span class="se">\M</span><span class="s2">icrosoft Visual Studio 11.0</span><span class="se">\V</span><span class="s2">C</span><span class="se">\B</span><span class="s2">IN</span><span class="se">\n</span><span class="s2">make.EXE"</span><span class="s1">' : return code '</span>0x2<span class="s1">'
+Stop.
+D:\Build\postgresql\src&gt;</span></code></pre></figure>
+
+<p>Luckily there is \build\postgresql\src\tools\msvc\build.pl .</p>
+
+<p>Huh ?  What’s *.pl files ? That’s perl.  If you don’t know what perl is , then you are in for a treat. Grab <a href="http://www.activestate.com/activeperl/downloads">active state perl</a> and install it if you don’t have it yet, so you will be able to process the file.</p>
+
+<p>Now. After installing perl, let’s cross our fingers and type</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">perl build.pl</code></pre></figure>
+
+<p>No?? msbuild throws up with:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">D:<span class="se">\B</span>uild<span class="se">\p</span>ostgresql<span class="se">\s</span>rc<span class="se">\t</span>ools<span class="se">\m</span>svc&gt;perl build.pl
+Detected hardware platform: Win32
+Microsoft <span class="o">(</span>R<span class="o">)</span> Build Engine version 4.0.30319.17929
+<span class="o">[</span>Microsoft .NET Framework, version 4.0.30319.18052]
+Copyright <span class="o">(</span>C<span class="o">)</span> Microsoft Corporation. All rights reserved.
+
+Building the projects <span class="k">in </span>this solution one at a time. To <span class="nb">enable </span>parallel build,
+please add the <span class="s2">"/m"</span> switch.
+Build started 06-10-2013 17:58:55.
+Project <span class="s2">"D:</span><span class="se">\B</span><span class="s2">uild</span><span class="se">\p</span><span class="s2">ostgresql</span><span class="se">\p</span><span class="s2">gsql.sln"</span> on node 1 <span class="o">(</span>default targets<span class="o">)</span><span class="nb">.</span>
+Building with tools version <span class="s2">"2.0"</span><span class="nb">.</span>
+Target <span class="s2">"ValidateSolutionConfiguration"</span> <span class="k">in </span>file <span class="s2">"D:</span><span class="se">\B</span><span class="s2">uild</span><span class="se">\p</span><span class="s2">ostgresql</span><span class="se">\p</span><span class="s2">gsql.sln.m
+etaproj"</span> from project <span class="s2">"D:</span><span class="se">\B</span><span class="s2">uild</span><span class="se">\p</span><span class="s2">ostgresql</span><span class="se">\p</span><span class="s2">gsql.sln"</span> <span class="o">(</span>entry point<span class="o">)</span>:
+Using <span class="s2">"Error"</span> task from assembly <span class="s2">"Microsoft.Build.Tasks.v4.0, Version=4.0.0.0,
+Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"</span><span class="nb">.</span>
+Task <span class="s2">"Error"</span>
+D:<span class="se">\B</span>uild<span class="se">\p</span>ostgresql<span class="se">\p</span>gsql.sln.metaproj : error MSB4126: The specified solution
+configuration <span class="s2">"Release|MCD"</span> is invalid. Please specify a valid solution configu
+ration using the Configuration and Platform properties <span class="o">(</span>e.g. MSBuild.exe Soluti
+on.sln /p:Configuration<span class="o">=</span>Debug /p:Platform<span class="o">=</span><span class="s2">"Any CPU"</span><span class="o">)</span> or leave those properties
+blank to use the default solution configuration. <span class="o">[</span>D:<span class="se">\B</span>uild<span class="se">\p</span>ostgresql<span class="se">\p</span>gsql.sln
+<span class="o">]</span>
+Done executing task <span class="s2">"Error"</span> <span class="nt">--</span> FAILED.
+Done building target <span class="s2">"ValidateSolutionConfiguration"</span> <span class="k">in </span>project <span class="s2">"pgsql.sln"</span> <span class="nt">--</span>
+FAILED.
+Done Building Project <span class="s2">"D:</span><span class="se">\B</span><span class="s2">uild</span><span class="se">\p</span><span class="s2">ostgresql</span><span class="se">\p</span><span class="s2">gsql.sln"</span> <span class="o">(</span>default targets<span class="o">)</span> <span class="nt">--</span> FAIL
+ED.
+
+
+Build FAILED.</code></pre></figure>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Oh.you  probably spotted it also. “Detected hardware platform: win32”. I ran this using the “Developer Command Prompt for VS2012” - maybe this targets win32 pr default? If I select “Microsoft Visual Studio 2012”</td>
+      <td>“Visual Studio Tools”</td>
+      <td>“VS2012 x64 Cross Tools Command Prompt” and execute “build” again - then it works!</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>After the compilation finished I typed:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">mkdir c:<span class="se">\p</span>ostgres
+install c:<span class="se">\p</span>ostgres</code></pre></figure>
+
+<p>Now I can use postgres from c:\postgres !</p>
+
+<p>#And now for something completely different</p>
+
+<p>After finishing what I did above I throw out my custom compile and starting using the <a href="http://www.postgresql.org/download/windows/">postgres zip archive</a>  again. I kept the code locally though. Right now I am poking around in the source code using “Run Source code analysis on solution”. This gives me the lowdown on what Microsoft thinks could be improved in the code. Let’s see an example:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">C6001	Using uninitialized memory	Using uninitialized memory <span class="s1">'replace_val'</span><span class="nb">.</span>	libpgtypes	timestamp.c	845
+		<span class="s1">'replace_val'</span> is not initialized			388
+		Enter this loop, <span class="o">(</span>assume <span class="s1">'*p'</span><span class="o">)</span>			394
+		Enter this branch, <span class="o">(</span>assume <span class="s1">'*p==37'</span><span class="o">)</span>			396
+		Assume switch <span class="o">(</span> <span class="s1">'*p'</span> <span class="o">)</span> resolves to <span class="k">case</span> 99: 			401
+		<span class="s1">'replace_val'</span> is an In/Out argument to <span class="s1">'pgtypes_fmt_replace'</span> <span class="o">(</span>declared at d:<span class="se">\b</span>uild<span class="se">\p</span>ostgresql<span class="se">\s</span>rc<span class="se">\i</span>nterfaces<span class="se">\e</span>cpg<span class="se">\p</span>gtypeslib<span class="se">\e</span>xtern.h:37<span class="p">)</span>			845
+		<span class="s1">'replace_val'</span> is used, but may not have been initialized			845</code></pre></figure>
+
+<p>Note that this is a random example. Right now I have a limited understanding of the postgresql codebase, so following the <a href="https://www.owasp.org/index.php/OWASP_Backend_Security_Project_PostgreSQL_Hardening">hardening guidelines from OWASP</a> seems like a good idea.</p>
+
+<p>#But wait! There’s more
+I like what I see. Looks like there is an active community  <a href="http://wiki.postgresql.org/wiki/Developer_and_Contributor_Resources">for developers here</a> . And . oh. Here is the official <a href="http://www.postgresql.org/docs/9.0/static/install-windows.html">“Installation From Source on Windows”</a> in the documentation. It looks solid. I’ll go check that out now :P</p>
+

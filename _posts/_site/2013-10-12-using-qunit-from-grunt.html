@@ -1,0 +1,179 @@
+<p>When poking around in the <a href="http://jquery.com">jquery</a> and <a href="http://jqueryui.com">jquery ui</a> codebases I noticed an extensive use of <a href="http://qunitjs.com">qunit</a> from <a href="http://gruntjs.com">grunt</a>. I get it that the jquery guys also did qunit - so this makes sense. But why grunt? I remember the earlier versions just used makefiles.</p>
+
+<p>#<a href="http://gruntjs.org">Grunt</a> and <a href="http://npmjs.org">npm</a> replaces <a href="http://www.gnu.org/software/make/">make</a>, <a href="http://www.gnu.org/software/autoconf/">autoconf</a> and <a href="http://en.wikipedia.org/wiki/Advanced_Packaging_Tool">apt</a> for javascript projects</p>
+
+<p>I remember Makefiles as simple - just as long as you got the use of tabs right and kept them simple. It was just “the other tools”  that made the experience bad for me. Remember <a href="http://www.gnu.org/software/automake/">automake</a> and <a href="http://en.wikipedia.org/wiki/M4_\(computer_language\)">m4 scripting</a>? Not to mention <a href="http://www.cmake.org/">cmake</a>. Tools like Make or ant are simple tools in themselves - they started getting complicated when the tradition to use associated tools arose - like Makefiles tend to assume that dependencies are handled using <a href="http://www.gnu.org/software/automake/">automake</a> and m4 scripts and ant buildfiles retrieve dependencies with tools like <a href="http://ant.apache.org/ivy/">ivy</a>. When I consider the complexity I know from existing build toolchains on linux, then grunt starts to look simple. The simplicity of grunt comes from how easy it is to combine grunt plugins as compared to how complex the build situation using other tools has become.  Using grunt it is now possible to build using only javascript based tools.</p>
+
+<p>#Installing <a href="http://gruntjs.org">grunt</a> and <a href="http://npmjs.org">npm</a>.</p>
+
+<p>To be able to use grunt you will need <a href="http://nodejs.org">nodejs</a> and <a href="http://npmjs.org">npm</a>.  You can find a nodejs installer for most platforms at <a href="http://nodejs.org">nodejs.org</a> - this will include npm. When you install you should make sure that the “node” and “npm” commands are available on your commandline via your “PATH” environment variable. (For my less commandline-savvy friends there are some detailed instructions for windows 7 <a href="http://geekswithblogs.net/renso/archive/2009/10/21/how-to-set-the-windows-path-in-windows-7.aspx">here</a>)</p>
+
+<p>You can install grunt globally from the commandline like this:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">npm install grunt-cli</code></pre></figure>
+
+<p>To take your newly installed grunt for a spin, you could try it out with building <a href="https://github.com/jquery/jquery-ui">jquery-ui</a>. To checkout jquery-ui you could do this:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone http://github.com/jquery/jquery-ui
+<span class="nb">cd </span>jquery-ui
+npm install
+grunt <span class="nt">--force</span></code></pre></figure>
+
+<p>This should take you through an example of using grunt on an existing project. If all goes well then  all the tests should pass and a new jquery-ui build should be avaible to you inside the “dist” folder.</p>
+
+<p>#Scaffolding a grunt project that supports qunit</p>
+
+<p>The major strength of grunt is its strong tradition for <a href="http://gruntjs.com/plugins">plugins</a> - but  when starting up it can also be a major drawback.  you need to setup   some plugins to be able to start working. It does not help that the grunt-init command has been separated out in a plugin in version 0.4 (most of the existing blog entries just refers to it as being inside grunt) . See The <a href="http://gruntjs.com/project-scaffolding">Project scaffolding</a> section in docs for more information.</p>
+
+<p>To be able to run grunt-init you need to install the grunt-init plugin and grab a working template to start working:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">npm install <span class="nt">-g</span> grunt-init
+<span class="nb">cd </span>c:<span class="se">\u</span>sers<span class="se">\j</span>acob<span class="se">\.</span>grunt-init
+git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/.grunt-init/gruntfile gruntfile</code></pre></figure>
+
+<p>Note that my username is “jacob” and that I am on windows here. You will probably have to insert another directory.</p>
+
+<p>Now I could run “grunt-init gruntfile” and answer a couple of questions:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">D:<span class="se">\S</span>ites<span class="se">\2</span><span class="o">&gt;</span>grunt-init gruntfile <span class="nt">--force</span>
+Running <span class="s2">"init:gruntfile"</span> <span class="o">(</span>init<span class="o">)</span> task
+This task will create one or more files <span class="k">in </span>the current directory, based on the
+environment and the answers to a few questions. Note that answering <span class="s2">"?"</span> to any
+question will show question-specific <span class="nb">help </span>and answering <span class="s2">"none"</span> to most questions
+
+will leave its value blank.
+
+Warning: Existing files may be overwritten! Used <span class="nt">--force</span>, continuing.
+
+<span class="s2">"gruntfile"</span> template notes:
+This template tries to guess file and directory paths, but you will most likely
+need to edit the generated Gruntfile.js file before running grunt. If you run
+grunt after generating the Gruntfile, and it exits with errors, edit the file!
+
+Please answer the following:
+<span class="o">[</span>?] Is the DOM involved <span class="k">in </span>ANY way? <span class="o">(</span>Y/n<span class="o">)</span>
+<span class="o">[</span>?] Will files be concatenated or minified? <span class="o">(</span>Y/n<span class="o">)</span>
+<span class="o">[</span>?] Will you have a package.json file? <span class="o">(</span>Y/n<span class="o">)</span></code></pre></figure>
+
+<p>After hitting Enter three times I got this file “Gruntfile.js”:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/*global module:false*/</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// Project configuration.</span>
+  <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+    <span class="c1">// Metadata.</span>
+    <span class="na">pkg</span><span class="p">:</span> <span class="nx">grunt</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">readJSON</span><span class="p">(</span><span class="s1">'package.json'</span><span class="p">),</span>
+    <span class="na">banner</span><span class="p">:</span> <span class="s1">'/*! &lt;%= pkg.title || pkg.name %&gt; - v&lt;%= pkg.version %&gt; - '</span> <span class="o">+</span>
+      <span class="s1">'&lt;%= grunt.template.today("yyyy-mm-dd") %&gt;</span><span class="err">\</span><span class="s1">n'</span> <span class="o">+</span>
+      <span class="s1">'&lt;%= pkg.homepage ? "* " + pkg.homepage + "</span><span class="err">\\</span><span class="s1">n" : "" %&gt;'</span> <span class="o">+</span>
+      <span class="s1">'* Copyright (c) &lt;%= grunt.template.today("yyyy") %&gt; &lt;%= pkg.author.name %&gt;;'</span> <span class="o">+</span>
+      <span class="s1">' Licensed &lt;%= _.pluck(pkg.licenses, "type").join(", ") %&gt; */</span><span class="err">\</span><span class="s1">n'</span><span class="p">,</span>
+    <span class="c1">// Task configuration.</span>
+    <span class="na">concat</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">banner</span><span class="p">:</span> <span class="s1">'&lt;%= banner %&gt;'</span><span class="p">,</span>
+        <span class="na">stripBanners</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">},</span>
+      <span class="na">dist</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">src</span><span class="p">:</span> <span class="p">[</span><span class="s1">'lib/&lt;%= pkg.name %&gt;.js'</span><span class="p">],</span>
+        <span class="na">dest</span><span class="p">:</span> <span class="s1">'dist/&lt;%= pkg.name %&gt;.js'</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="na">uglify</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">banner</span><span class="p">:</span> <span class="s1">'&lt;%= banner %&gt;'</span>
+      <span class="p">},</span>
+      <span class="na">dist</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">src</span><span class="p">:</span> <span class="s1">'&lt;%= concat.dist.dest %&gt;'</span><span class="p">,</span>
+        <span class="na">dest</span><span class="p">:</span> <span class="s1">'dist/&lt;%= pkg.name %&gt;.min.js'</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="na">jshint</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">curly</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">eqeqeq</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">immed</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">latedef</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">newcap</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">noarg</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">sub</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">undef</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">unused</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">boss</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">eqnull</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">browser</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">globals</span><span class="p">:</span> <span class="p">{}</span>
+      <span class="p">},</span>
+      <span class="na">gruntfile</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">src</span><span class="p">:</span> <span class="s1">'Gruntfile.js'</span>
+      <span class="p">},</span>
+      <span class="na">lib_test</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">src</span><span class="p">:</span> <span class="p">[</span><span class="s1">'lib/**/*.js'</span><span class="p">,</span> <span class="s1">'test/**/*.js'</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="na">qunit</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">files</span><span class="p">:</span> <span class="p">[</span><span class="s1">'test/**/*.html'</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="na">watch</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">gruntfile</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">files</span><span class="p">:</span> <span class="s1">'&lt;%= jshint.gruntfile.src %&gt;'</span><span class="p">,</span>
+        <span class="na">tasks</span><span class="p">:</span> <span class="p">[</span><span class="s1">'jshint:gruntfile'</span><span class="p">]</span>
+      <span class="p">},</span>
+      <span class="na">lib_test</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">files</span><span class="p">:</span> <span class="s1">'&lt;%= jshint.lib_test.src %&gt;'</span><span class="p">,</span>
+        <span class="na">tasks</span><span class="p">:</span> <span class="p">[</span><span class="s1">'jshint:lib_test'</span><span class="p">,</span> <span class="s1">'qunit'</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+
+  <span class="c1">// These plugins provide necessary tasks.</span>
+  <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">'grunt-contrib-concat'</span><span class="p">);</span>
+  <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">'grunt-contrib-uglify'</span><span class="p">);</span>
+  <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">'grunt-contrib-qunit'</span><span class="p">);</span>
+  <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">'grunt-contrib-jshint'</span><span class="p">);</span>
+  <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">'grunt-contrib-watch'</span><span class="p">);</span>
+
+  <span class="c1">// Default task.</span>
+  <span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s1">'default'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'jshint'</span><span class="p">,</span> <span class="s1">'qunit'</span><span class="p">,</span> <span class="s1">'concat'</span><span class="p">,</span> <span class="s1">'uglify'</span><span class="p">]);</span>
+
+<span class="p">};</span></code></pre></figure>
+
+<p>To be able to run this Gruntfile you need to install the necessary plugins. If you append “–save-dev” to the installation commands then installation info will inserted into package.json:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">npm install grunt-contrib-jshint <span class="nt">--save-dev</span>
+npm install grunt-contrib-qunit <span class="nt">--save-dev</span>
+npm install grunt-contrib-watch <span class="nt">--save-dev</span>
+npm install grunt-contrib-concat <span class="nt">--save-dev</span>
+npm install grunt-contrib-uglify <span class="nt">--save-dev</span></code></pre></figure>
+
+<p>This will retrieve the plugins and place them inside the node_modules and add them inside the devDependencies section of package.json . As you might have noticed the Grunt files are a bit verbose but they support easy composition of plugins - e.g. if you would like to another target , using another plugin , then you could do this pretty easily. The grunt files are written in javascript, so if you wish to insert custom logic in the build files, then it should be pretty easy to do so (Without worrying about tabs and spaces  ).</p>
+
+<p>Note that once you have created package.json describing your dependencies, then you can simple write “npm install” to install your dependencies. There is no need to store the “node_modules” folder in your version control system.</p>
+
+<p>#<a href="http://qunitjs.org">Qunit</a> replaces <a href="http://junit.org">junit</a> and <a href="http://phpunit.de/manual/current/en/index.html">phpunit</a> on the frontend.</p>
+
+<p>After installing  grunt-contrib-qunit and enabling it your gruntfile you now have the option of writing automated <a href="http://qunitjs.com/">qunit</a> tests that can be run  directly from grunt. grunt-contrib-qunit uses <a href="http://phantomjs.org/">phantomjs</a> behind the scenes to enable you run your tests directly from grunt (without opening a browser). This should make it easier to automate your tests.</p>
+
+<p>I think that best way to learn qunit is to look at existing tests. The <a href="https://github.com/jquery/jquery-ui/blob/master/tests/unit/button/button_core.js">button core test in jquery ui</a> is a good place to start.</p>
+
+<p>The essential functionality in qunit is :</p>
+
+<ul>
+  <li>ok (truthy [,message])</li>
+  <li>assert ( value, expected [,message])</li>
+  <li>expect ( number of assertions)</li>
+</ul>
+
+<p>Combining these let’s you write a test like the check for <a href="http://bugs.jqueryui.com/ticket/7534">#7534 in jquery ui</a>:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">test</span><span class="p">(</span> <span class="s2">"#7534 - Button label selector works for ids with </span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">expect</span><span class="p">(</span> <span class="mi">1</span> <span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">group</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"&lt;span&gt;&lt;input type='checkbox' id='check:7534'&gt; &lt;label for='check:7534'&gt;Label&lt;/label&gt;&lt;/span&gt;"</span> <span class="p">);</span>
+  <span class="nx">group</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="s2">"input"</span> <span class="p">).</span><span class="nx">button</span><span class="p">();</span>
+  <span class="nx">ok</span><span class="p">(</span> <span class="nx">group</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="s2">"label"</span> <span class="p">).</span><span class="nx">is</span><span class="p">(</span> <span class="s2">".ui-button"</span> <span class="p">),</span> <span class="s2">"Found an id with a :"</span> <span class="p">);</span>
+<span class="p">});</span></code></pre></figure>
+
+<p>Here we expect 1 assertion to be run.</p>
+
+<p>There are more advanced options in qunit that you can explore - feel free to take a look at the documentation on <a href="http://qunitjs.com/">qunitjs.com</a> - or be inspired by the existing tests in <a href="https://github.com/jquery/jquery-ui/tree/master/tests/unit">jquery-ui</a></p>
