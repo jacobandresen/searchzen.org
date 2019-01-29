@@ -62,8 +62,7 @@ programmers in its early days - this situation has changed with the introduction
 serverside it is possible to end-to-end solutions for clean room MVC  - but in most practical scenarios where the server implementation will be in 
 something other than javascript, then there will be some kind of duplication of logic on the server and the client. Or as zxibit could have said:
 
-![Yo Dawg I hurd you like MVC so I put a MVC in your MVC](http://cdn.meme.am/instances/500x/50530257.jpg)
-
+*Yo Dawg I hurd you like MVC so I put a MVC in your MVC*
 
 Jokes aside ... It is important to understand that taking the MVC paradigm and applying it on web application programming in the same manner as you 
 would have applied it to application programming in the PC era could be considered harmful. The web has a entirely different delivery mechanism 

@@ -8,11 +8,11 @@ categories: testing automation
 
 When poking around in the [jquery](http://jquery.com) and [jquery ui](http://jqueryui.com) codebases I noticed an extensive use of [qunit](http://qunitjs.com) from [grunt](http://gruntjs.com). I get it that the jquery guys also did qunit - so this makes sense. But why grunt? I remember the earlier versions just used makefiles.
 
-#[Grunt](http://gruntjs.org) and [npm](http://npmjs.org) replaces [make](http://www.gnu.org/software/make/), [autoconf](http://www.gnu.org/software/autoconf/) and [apt](http://en.wikipedia.org/wiki/Advanced_Packaging_Tool) for javascript projects
+# [Grunt](http://gruntjs.org) and [npm](http://npmjs.org) replaces [make](http://www.gnu.org/software/make/), [autoconf](http://www.gnu.org/software/autoconf/) and [apt](http://en.wikipedia.org/wiki/Advanced_Packaging_Tool) for javascript projects
 
 I remember Makefiles as simple - just as long as you got the use of tabs right and kept them simple. It was just "the other tools"  that made the experience bad for me. Remember [automake](http://www.gnu.org/software/automake/) and [m4 scripting](http://en.wikipedia.org/wiki/M4_\(computer_language\))? Not to mention [cmake](http://www.cmake.org/). Tools like Make or ant are simple tools in themselves - they started getting complicated when the tradition to use associated tools arose - like Makefiles tend to assume that dependencies are handled using [automake](http://www.gnu.org/software/automake/) and m4 scripts and ant buildfiles retrieve dependencies with tools like [ivy](http://ant.apache.org/ivy/). When I consider the complexity I know from existing build toolchains on linux, then grunt starts to look simple. The simplicity of grunt comes from how easy it is to combine grunt plugins as compared to how complex the build situation using other tools has become.  Using grunt it is now possible to build using only javascript based tools.
 
-#Installing [grunt](http://gruntjs.org) and [npm](http://npmjs.org).
+# Installing [grunt](http://gruntjs.org) and [npm](http://npmjs.org).
 
 To be able to use grunt you will need [nodejs](http://nodejs.org) and [npm](http://npmjs.org).  You can find a nodejs installer for most platforms at [nodejs.org](http://nodejs.org) - this will include npm. When you install you should make sure that the "node" and "npm" commands are available on your commandline via your "PATH" environment variable. (For my less commandline-savvy friends there are some detailed instructions for windows 7 [here](http://geekswithblogs.net/renso/archive/2009/10/21/how-to-set-the-windows-path-in-windows-7.aspx))
 
@@ -33,7 +33,7 @@ grunt --force
 	
 This should take you through an example of using grunt on an existing project. If all goes well then  all the tests should pass and a new jquery-ui build should be avaible to you inside the "dist" folder.
 
-#Scaffolding a grunt project that supports qunit
+# Scaffolding a grunt project that supports qunit
 
 The major strength of grunt is its strong tradition for [plugins](http://gruntjs.com/plugins) - but  when starting up it can also be a major drawback.  you need to setup   some plugins to be able to start working. It does not help that the grunt-init command has been separated out in a plugin in version 0.4 (most of the existing blog entries just refers to it as being inside grunt) . See The [Project scaffolding](http://gruntjs.com/project-scaffolding) section in docs for more information. 
 
@@ -173,7 +173,7 @@ This will retrieve the plugins and place them inside the node_modules and add th
 
 Note that once you have created package.json describing your dependencies, then you can simple write "npm install" to install your dependencies. There is no need to store the "node_modules" folder in your version control system.
 
-#[Qunit](http://qunitjs.org) replaces [junit](http://junit.org) and [phpunit](http://phpunit.de/manual/current/en/index.html) on the frontend.
+# [Qunit](http://qunitjs.org) replaces [junit](http://junit.org) and [phpunit](http://phpunit.de/manual/current/en/index.html) on the frontend.
 
 After installing  grunt-contrib-qunit and enabling it your gruntfile you now have the option of writing automated [qunit](http://qunitjs.com/) tests that can be run  directly from grunt. grunt-contrib-qunit uses [phantomjs](http://phantomjs.org/) behind the scenes to enable you run your tests directly from grunt (without opening a browser). This should make it easier to automate your tests.
 
