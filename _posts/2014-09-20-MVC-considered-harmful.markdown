@@ -16,8 +16,7 @@ the MVC pattern and familiar with the existing frameworks that are allready avai
 ## A detour around Xerox PARC
 Prior to the internet - programming mostly involved a workstation and in some cases a central server with a central datastore .
 Programming was mainly about data entry and computation and how share the results of that in a meaningfull manner.
-Great care and effort was put into meeting the immediate expectations of the users and programming was typically done using a structured plan
-- something that we know today as the [waterfall model](https://www.wikiwand.com/en/Waterfall_model) .
+Great care and effort was put into meeting the immediate expectations of the users and programming was typically done using a structured plan - something that we know today as the [waterfall model](https://www.wikiwand.com/en/Waterfall_model) .
 Software modelling was (and still is) done by using metaphors to map user needs into software and carefully designing the sofware using object 
 oriented constructs.
 One prevalent approach was to apply the MVC pattern invented by [Trygve Reenskaug](https://www.wikiwand.com/en/Trygve_Reenskaug)
