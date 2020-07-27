@@ -47,7 +47,7 @@ What it specifically does NOT mean is:
 - refer to general descriptions on post-its captured during "wave planning" . Agility is not being vague.
 - continously referring to "what we agreed upon at standup". Consensus is not allways optimal.
 
-My point here is that the more technical context a description can be provide , the better. If the description is in a allready running form , then this should be optimal. Maybe we can find a way to perform system development where we code all the things and embrace change faster in this way?
+My point here is that the more technical context a description can provide , the better. If the description is in a allready running form , then this should be optimal. Maybe we can find a way to perform system development where we code all the things and embrace change faster in this way?
 
 
 
