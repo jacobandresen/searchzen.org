@@ -33,7 +33,7 @@ So how do we escape the formalism of Software engineering and focus more on the 
 
 ![Code All the tings](/public/code_all_teh_things.jpg)
 
-I think that decisions or design considerations relevant to features should be taken the teams implementing them whenever possible. In my experience - code that captures or tries to mimic human experience wille be more successfully implemented , when the teams implementing it have a better understanding of the context (I tried to capture my thoughts on this as ["Mindful software"](/2011/04/19/Mindful-software/) ).  Given that features will be implemented using  code, it would beneficial that the features are described in manner that uses code whenever possible. Concretely, to me "code all the things"  would the mean the following to me in the context of implementing features for an organisation in 2020:
+I think that decisions or design considerations relevant to features should be taken the teams implementing them whenever possible. In my experience - code that captures or tries to mimic human experience wille be more successfully implemented , when the teams implementing it have a better understanding of the context (I tried to capture my thoughts on this as ["Mindful software"](http://searchzen.org/2011/04/19/Mindful-software/) ).  Given that features will be implemented using  code, it would beneficial that the features are described in manner that uses code whenever possible. Concretely, to me "code all the things"  would the mean the following to me in the context of implementing features for an organisation in 2020:
 
 
 * evolve feature descriptions using automated test specifications (e.g using ["cypress"](https://cypress.io)
