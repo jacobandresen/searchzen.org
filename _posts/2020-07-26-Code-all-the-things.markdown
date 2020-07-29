@@ -44,6 +44,6 @@ I think that decisions or design considerations relevant to features should be t
 What it specifically does NOT mean is:
 - Encapsulate and code everything in your MVC framework frontend framework. Some things are better done on the serverside.
 - refer to general descriptions on post-its captured during "wave planning" . Agility is not being vague.
-- continously referring to "what we agreed upon at standup". Consensus is not allways optimal.
+- continuously referring to "what we agreed upon at standup". Consensus is not allways optimal.
 
 My point here is that the more technical context a description can provide , the better. If the description is in a allready running form , then this should be optimal. Maybe we can find a way to perform system development where we code all the things and embrace change faster in this way?
