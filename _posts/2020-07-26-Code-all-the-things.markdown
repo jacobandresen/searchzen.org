@@ -12,7 +12,7 @@ Some time ago, I received a good advice: "Do not think too much about the fronte
 
 ## "There is more to life than Java applets"
 
-Now that the years have passed, I also understand that my eagerness and preference for modelling everything using object constructs during my web programming days in the 00's and the early 10's have been founded in what I have read in books, and used in my early Java applet programming days. My intuitive fondness of what I saw in my ["ExtJS"](https://www.extjs.com/") was based in that I could easily related to have I programmed solutions using Java and ["AWT"](https://docs.oracle.com/javase/7/docs/api/java/awt/package-summary.html)  - while paying little or no attention to the web as a delivery platform.
+Now that the years have passed, I also understand that my eagerness and preference for modelling everything using object constructs during my web programming days in the 00's and the early 10's have been founded in what I have read in books, and used in my early Java applet programming days. My intuitive fondness of what I saw in my ["ExtJS"](https://www.extjs.com/") was based in that I could easily relate to how I programmed solutions using Java and ["AWT"](https://docs.oracle.com/javase/7/docs/api/java/awt/package-summary.html)  - while paying little or no attention to the web as a delivery platform.
 
 Modern web development, while still being centered around ["SPA's"](https://en.wikipedia.org/wiki/Single-page_application) is now progressing more in the lines of reactive programming than the traditional MVC/MVVM approach  - so in that sense web programming is evolving away from the traditional desktop/server metaphor and is is now embracing concepts like reactive programming and immutable datastores. By employing immutable data stores, we now have a way for easy reasoning about what parts of the user interface should be updated, even allowing it to be done stepwise - in a coordinated manner. The concepts from ["Reframe"](http://day8.github.io/re-frame/) now have widespread applications in the industry  - eg ["Redux"](https://redux.js.org/) and ["NGRX"](https://ngrx.io/) . In addition, we now have the support of "map" and "reduce" constructs from ["ES6"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) and more declarative style of programming via ["rxjs"](https://www.learnrxjs.io/) .
 
@@ -35,9 +35,8 @@ So how do we escape the formalism of Software engineering and focus more on the 
 
 I think that decisions or design considerations relevant to features should be taken the teams implementing them whenever possible. In my experience - code that captures or tries to mimic human experience wille be more successfully implemented , when the teams implementing it have a better understanding of the context (I tried to capture my thoughts on this as ["Mindful software"](http://searchzen.org/2011/04/19/Mindful-software/) ).  Given that features will be implemented using  code, it would beneficial that the features are described in manner that uses code whenever possible. Concretely, to me "code all the things"  would the mean the following to me in the context of implementing features for an organisation in 2020:
 
-
-* evolve feature descriptions using automated test specifications (e.g using ["cypress"](https://cypress.io)
-* maintain and use a common design system using modern styling mechanisms (e.g ["SASS"](https://sass-lang.com/)
+* evolve feature descriptions using automated test specifications (e.g using ["cypress"](https://cypress.io) )
+* maintain and use a common design system using modern styling mechanisms (e.g ["SASS"](https://sass-lang.com/) )
 * maintain and use a common component library (e.g using ["TypeScript"](https://www.typescriptlang.org/)  and ["StoryBook"](https://storybook.js.org/) ) 
 * implement features using microservices for easier scalability  (e.g using ["Docker"](https://www.docker.com/) and ["Kubernetes"](https://kubernetes.io/) and ["OpenAPI"](https://swagger.io/specification/) )
 * guide system coherency using reactive programming (E.g using ["Reactive extensions"](http://reactivex.io/) )
@@ -48,12 +47,3 @@ What it specifically does NOT mean is:
 - continously referring to "what we agreed upon at standup". Consensus is not allways optimal.
 
 My point here is that the more technical context a description can provide , the better. If the description is in a allready running form , then this should be optimal. Maybe we can find a way to perform system development where we code all the things and embrace change faster in this way?
-
-
-
-
-
-
-
-
-
