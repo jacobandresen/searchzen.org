@@ -13,7 +13,7 @@ So. Lately I have been advocating a switch to [postgres](http://www.postgresql.o
 I believe in having the source available for all my tools.This is just a personal preference of mine ... I like to poke around to learn new stuff .. discover new ways  and combine projects in new ways .. but mostly I like to learn from the insights of others. See implementation tidbits buried deep down. My list of  projects to poke around in is long. Postgres is just one of the projects I'd like to poke around in. So - now I am going to poke around in postgres.  Let's see if we can compile it on window 7.  I'll just write down notes as I go along. Are you ready?   Bring forward your wooden stick!
 
 
-<object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/YgYEuJ5u1K0&amp;hl=en&amp;fs=1&amp;" /><param name="allowFullScreen" value="true" /><param name="allowscriptaccess" value="always" /><embed type="application/x-shockwave-flash" width="560" height="340" src="http://www.youtube.com/v/YgYEuJ5u1K0&amp;hl=en&amp;fs=1&amp;" allowfullscreen="true" allowscriptaccess="always"></embed></object>
+<iframe width="420" height="315" src="http://www.youtube.com/embed/YgYEuJ5u1K0" frameborder="0" allowfullscreen></iframe>
 
 
 ## Checking out postgres on windows ##
