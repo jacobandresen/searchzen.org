@@ -12,7 +12,7 @@ The central insight of BDD is that TDD is really computer aided specifications o
 Back in 2006 , Dave Astels described how to ascend from the focus on 1-1 testing of production code to use the test proces as a way to describe the way you want your system to behave.
 
 
-<iframe width="420" height="315" src="http://www.youtube.com/embed/XOkHh8zF33o" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/XOkHh8zF33o" frameborder="0" allowfullscreen></iframe>
 
 
 In the video Dave makes the valid point that "The words you use shape how you think".  So we should go away from thinking about "testing" constantly to think about describing how you want your system to work.

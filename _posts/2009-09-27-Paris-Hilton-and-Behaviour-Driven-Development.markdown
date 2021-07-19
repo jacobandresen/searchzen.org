@@ -14,7 +14,7 @@ All these things put together would lead to a well thought out system architectu
 While browsing on <a href="http://www.facebook.com">facebook</a> this other day I found the <a href="http://www.facebook.com/group.php?gid=5299495387">"The Paris Hilton &amp; Jacques Derrida Appreciation Society" </a> - this group explores the connections between the works of Paris Hilton and Jacques Derrida. When we deconstruct the "pretty blonde" facade of Paris Hilton, then you can actually find some deep insights. Take "Nothing in this world" for instance:
 
 
-<iframe width="420" height="315" src="http://www.youtube.com/embed/32DwYTRmmto" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/32DwYTRmmto" frameborder="0" allowfullscreen></iframe>
 
 
 Take the phrase "when you are with somebody else, that's me in your eye".  There is the obvious interpretation of the sentence .  But thinking about that sentence also let's you reflect on the <em>real meaning</em> . When you look at Paris Hilton in this video, what do you see? Do you see the pretty blonde or the millionaire , hard working young girl . In this video I am seeing the image of the pretty blonde - but I am also thinking about the millions of dollars she is earning portraying herself in this way.  So in a sense - I am reading the original message out of context. I am admiring what Paris Hilton in some other way than she intended - the original meaning of the words seem to have disappeared - but my understanding of the sentence is more useful to me.  I wish I could do what Paris Hilton does - but in a way that would make sense in my world .
